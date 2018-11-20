@@ -1,0 +1,48 @@
+﻿----------为了节省时间，我这里只提供伪代码算法及实现原理不提供现成代码，群内又不懂的小伙伴可以给我留言
+/**
+ * 傅里叶音频实现
+ */
+//--我这里采样是128，来采点，傅里叶音频实现
+if (mPoints == null || mPoints.length < mBytes.length * 4) {
+      mPoints = new float[mBytes.length * 4];
+}
+
+ //--128 --这个就不说了4位矩阵
+for    -----> 音频采点长度 ---->x*4
+	[x+1]
+	[x+2]
+	[x+3]
+	[x+4]
+--->X为递增向量
+	
+///-----音效算法-->数据结构
+struct MUSIC_TITAL_INFO
+	{
+		char ID3v1TAG[3]; //TAG
+		char MUSIC_NAME[30]; //存储标题信息
+		char Artist[30]; //存储歌手信息
+		char Album[30]; //存储专辑信息
+		char YEAR[4]; //存储年代信息
+		char Comments[28]; //存储备注信息,28个字节(有时为30字节)
+		char Genre; //存储音乐风格信息,保留位，1个字节
+		char Reserved; //保留位，1个字节(有时没有意思
+		char Track; //音轨(曲号)保留位，1个字节(有时没有)
+}st1;
+
+//--这个可以百度后面就不说了，采用裸流解码--->按哈夫曼树解码权值
+
+
+printf("标题:");
+	for (i = 0; i<30; i++)
+	{
+		printf("%c", st1.MUSIC_NAME[i]);
+	}
+for  ----> 更据不同格式长度来循环遍历音轨及每帧的头
+fread(&st1, 1, 128, fp); 
+printf("音轨:");
+printf("%c", st1.Track);
+printf("\n");
+
+
+
+
